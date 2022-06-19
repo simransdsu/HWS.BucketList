@@ -14,6 +14,8 @@ struct ContentView: View {
                                                     span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
   @State private var locations: [Location] = []
   
+  @State private var selectedPlace: Location?
+  
   var body: some View {
     ZStack {
       Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
@@ -25,6 +27,11 @@ struct ContentView: View {
               .frame(width: 44, height: 44)
               .background(.white)
               .clipShape(Circle())
+            Text(location.name)
+              .fixedSize()
+          }
+          .onTapGesture {
+            selectedPlace = location
           }
         }
       }
@@ -37,6 +44,13 @@ struct ContentView: View {
       
       floatingAddButton
     }
+    .sheet(item: $selectedPlace) { selectedPlace in
+      EditView(location: selectedPlace) { newLocation in
+        if let index = locations.firstIndex(of: selectedPlace) {
+          locations[index] = newLocation
+        }
+      }
+    }
   }
   
   private var floatingAddButton: some View {
@@ -46,7 +60,7 @@ struct ContentView: View {
         Spacer()
         Button {
           let newLocation = Location(id: UUID(),
-                                     name: "new Location",
+                                     name: "",
                                      description: "",
                                      latitude: mapRegion.center.latitude,
                                      longitude: mapRegion.center.longitude)
