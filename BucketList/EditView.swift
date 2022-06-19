@@ -46,7 +46,7 @@ struct EditView: View {
             case .loading:
               Text("loading..")
             case .loaded:
-              ForEach(pages, id: \.padeId) { page in
+              ForEach(pages, id: \.padeid) { page in
                 Text(page.title)
                   .font(.headline)
                 +
@@ -91,6 +91,7 @@ struct EditView: View {
       pages = items.query.pages.values.sorted { $0.title < $1.title }
       loadingState = .loaded
     } catch {
+      print("❌", error)
       loadingState = .failed
     }
 
