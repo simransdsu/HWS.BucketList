@@ -10,15 +10,11 @@ import MapKit
 
 struct ContentView: View {
   
-  @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0),
-                                                    span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
-  @State private var locations: [Location] = []
-  
-  @State private var selectedPlace: Location?
+  @StateObject var viewModel = ContentView.ViewModel()
   
   var body: some View {
     ZStack {
-      Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
+      Map(coordinateRegion: $viewModel.mapRegion, annotationItems: viewModel.locations) { location in
         MapAnnotation(coordinate: location.coordinate) {
           VStack {
             Image(systemName: "star.circle")
@@ -31,7 +27,7 @@ struct ContentView: View {
               .fixedSize()
           }
           .onTapGesture {
-            selectedPlace = location
+            viewModel.selectedPlace = location
           }
         }
       }
@@ -44,10 +40,10 @@ struct ContentView: View {
       
       floatingAddButton
     }
-    .sheet(item: $selectedPlace) { selectedPlace in
+    .sheet(item: $viewModel.selectedPlace) { selectedPlace in
       EditView(location: selectedPlace) { newLocation in
-        if let index = locations.firstIndex(of: selectedPlace) {
-          locations[index] = newLocation
+        if let index = viewModel.locations.firstIndex(of: selectedPlace) {
+          viewModel.updateLocation(location: newLocation, at: index)
         }
       }
     }
@@ -59,12 +55,7 @@ struct ContentView: View {
       HStack {
         Spacer()
         Button {
-          let newLocation = Location(id: UUID(),
-                                     name: "",
-                                     description: "",
-                                     latitude: mapRegion.center.latitude,
-                                     longitude: mapRegion.center.longitude)
-          locations.append(newLocation)
+          viewModel.addLocation()
         } label: {
           Image(systemName: "plus")
             .padding()

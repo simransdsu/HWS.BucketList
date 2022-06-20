@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49A2A55F285EFBAA00522ED7 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2A55E285EFBAA00522ED7 /* EditView.swift */; };
 		49A2A561285F011C00522ED7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2A560285F011C00522ED7 /* Result.swift */; };
+		49A2A563285FF2B200522ED7 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2A562285FF2B200522ED7 /* ContentView-ViewModel.swift */; };
 		49D2B43C285CC15800356850 /* BucketListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B43B285CC15800356850 /* BucketListApp.swift */; };
 		49D2B43E285CC15800356850 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B43D285CC15800356850 /* ContentView.swift */; };
 		49D2B440285CC15900356850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49D2B43F285CC15900356850 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		49A2A55E285EFBAA00522ED7 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		49A2A560285F011C00522ED7 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		49A2A562285FF2B200522ED7 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		49D2B438285CC15800356850 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D2B43B285CC15800356850 /* BucketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListApp.swift; sourceTree = "<group>"; };
 		49D2B43D285CC15800356850 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				49FC36B6285DBB3D0006AEF8 /* Location.swift */,
 				49A2A55E285EFBAA00522ED7 /* EditView.swift */,
 				49A2A560285F011C00522ED7 /* Result.swift */,
+				49A2A562285FF2B200522ED7 /* ContentView-ViewModel.swift */,
 			);
 			path = BucketList;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49D2B43E285CC15800356850 /* ContentView.swift in Sources */,
+				49A2A563285FF2B200522ED7 /* ContentView-ViewModel.swift in Sources */,
 				49A2A561285F011C00522ED7 /* Result.swift in Sources */,
 				49FC36B7285DBB3D0006AEF8 /* Location.swift in Sources */,
 				49A2A55F285EFBAA00522ED7 /* EditView.swift in Sources */,
